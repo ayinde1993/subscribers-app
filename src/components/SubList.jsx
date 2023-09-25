@@ -1,14 +1,21 @@
 import React from "react";
 
-function Sublist(props){
+function SubList(props){
+    const {firstName, email, onCheked, id, eddit} = props;
     return(
-    <tr key = {props.key} >
-     <td>{props.firstName}</td>
-     <td>{props.email}</td>
-     <input class="btn btn-primary" type="submit" value="Delete" onClick={()=>{props.onChecked(props.id)}}></input>
+    <tr>
+     <td>{firstName}</td>
+     <td>{email}</td>
+     <input className="btn btn-primary"
+      type="submit" 
+      value="Delete"
+       onClick={()=>{
+        onCheked(id)
+        }}>
+       </input>
 
     </tr>
-    )
+    );
 }
 
-export default Sublist;
+export default SubList;

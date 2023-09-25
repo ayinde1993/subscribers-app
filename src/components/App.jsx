@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import Sublist from './SubList';
+import SubList from './SubList';
 import Input from './input';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,18 +13,26 @@ function handleClick(fullInfo){
   setUserList((prevUserInfo)=>{
     return([ ...prevUserInfo, 
      fullInfo]);
-  })
+  });
 
 }
 
-function deleteItem(id){
-  console.log("yes");
-  setUserList((prevItems)=>{
-    return prevItems.filter((index)=>{
+function deleteUsers(id){
+  //console.log("hi am less")
+  setUserList((prevUsers)=>{
+    return prevUsers.filter((user,index)=>{
       return index !== id;
     });
   });
+}
 
+function edditUsers(id){
+  //console.log("hi am less")
+  setUserList((prevUsers)=>{
+    return prevUsers.filter((user,index)=>{
+      //return index !== id;
+    });
+  });
 }
 
 
@@ -46,13 +54,18 @@ function deleteItem(id){
          
           {userList.map((user,index)=>{
             return (
-              <Sublist key ={index} id={index} firstName ={user.fname} 
-              email={user.email} onChecked={deleteItem}/>
+              <SubList 
+              key ={index} 
+              id ={index} 
+              firstName ={user.fname} 
+              email={user.email} 
+              onCheked={deleteUsers}
+              eddit ={edditUsers}
+              />
+              
             )
               
           })}
-           
-       
          
         </tbody>
       </table>

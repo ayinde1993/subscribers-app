@@ -20,7 +20,7 @@ function Input(props){
 
     return( 
         <form className = "formulaire">
-        <div class="group">      
+        <div className="group">      
           <input onChange={handleChange} type="text" name = "fname"  value = {fullInfo.fname} required/>
           <span className="highlight"></span>
           <span className="bar"></span>
